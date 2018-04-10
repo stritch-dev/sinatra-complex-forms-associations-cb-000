@@ -1,1 +1,14 @@
-index.erb
+
+<% Pet.all.each do |pet|%>
+  <% if pet.owner_id  %>
+       <%owner = Owner.find(pet.owner_id)%> 
+   <%end%>
+  <table  border=1>
+    <tr>
+      <td> <%=pet.name%> </td>
+      <% if owner %>
+        <td> <%=owner.name%> </td>
+      <% end %>
+    </tr>
+  </table>
+<% end %>
